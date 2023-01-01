@@ -16,7 +16,10 @@
     "client.GameRendererMixin",
     "client.HumanoidModelMixin",
     "client.LevelRendererMixin",
-    "client.ModelPartMixin"
+    "client.ModelPartMixin",
+    "client.shader.ProgramAccessor",
+    "client.shader.ProgramManagerMixin",
+    "client.shader.ShaderInstanceMixin"
   ],
   "injectors": {
     "defaultRequire": 1

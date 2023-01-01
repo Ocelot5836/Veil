@@ -2,6 +2,7 @@ package foundry.veil.mixin.client;
 
 import foundry.veil.postprocessing.PostProcessingHandler;
 import foundry.veil.shader.RenderTypeRegistry;
+import foundry.veil.shader.VeilShaderLoader;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.ItemInHandRenderer;
@@ -23,5 +24,10 @@ public class GameRendererMixin {
     @Inject(method = "resize", at = @At(value = "HEAD"))
     public void resizeListener(int pWidth, int pHeight, CallbackInfo ci) {
         PostProcessingHandler.resize(pWidth, pHeight);
+    }
+
+    @Inject(method = "reloadShaders", at=@At("HEAD"))
+    public void closeShaders(ResourceManager resourceManager, CallbackInfo ci){
+        VeilShaderLoader.free();
     }
 }
